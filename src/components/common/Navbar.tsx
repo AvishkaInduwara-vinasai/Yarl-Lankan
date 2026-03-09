@@ -31,7 +31,7 @@ const Navbar = () => {
       
       {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="bg-[#333333] w-full flex items-center justify-center h-[30px] overflow-hidden">
-        <p className="text-white text-[7px] sm:text-[9px] md:text-[11px] tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.2em] font-tinos uppercase px-2 whitespace-nowrap">
+        <p className="text-white text-[9px] sm:text-[9px] md:text-[11px] tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.2em] font-tinos uppercase px-2 whitespace-nowrap">
           For Order, Wholesale and Reselling related queries contact +65 8819 5910
         </p>
       </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
           {/* Desktop & Tablet Order Button */}
           <div className="hidden md:flex items-center">
             <button className="bg-[#4A0404] text-white px-4 lg:px-6 py-2 rounded-md flex items-center gap-1.5 lg:gap-2 transition-all duration-300 hover:bg-[#2D0202] shadow-sm group">
-              <span className="text-[10px] lg:text-[12px] xl:text-[13px] font-tinos font-bold tracking-widest uppercase whitespace-nowrap">Order Now</span>
+              <span className="text-[10px] lg:text-[10px] xl:text-[10px] font-tinos font-bold tracking-widest uppercase whitespace-nowrap">Order Now</span>
               <Plus size={16} className="transition-transform duration-500 group-hover:rotate-180" />
             </button>
           </div>
