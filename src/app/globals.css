@@ -1,4 +1,4 @@
-@import "tailwindcss"; /* Next 16/v4 වලදී tailwind import වෙන්නේ මෙහෙමයි */
+@import "tailwindcss"; /* Tailwind CSS import syntax for Next.js 16/v4 */
 
 @theme {
   /* Figma Colors */
