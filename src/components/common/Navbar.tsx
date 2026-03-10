@@ -10,28 +10,21 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // --- Logic to hide Navbar on the Main/Home page ---
  /* if (pathname === "/") {
     return null;
   }*/
 
-  // --- Dynamic Branding Logic ---
-// --- Dynamic Branding & Logo Logic ---
-  let brandSuffix = "LANKAN";
-  let logoSrc = "/logo.png"; // Default main logo
+  // Only the Logo source changes based on the path
+  let logoSrc = "/logo.png"; 
 
   if (pathname.includes("/spices")) {
-    brandSuffix = "SPICES";
-    logoSrc = "/logo-spices.png"; // Change logo for spices
+    logoSrc = "/logo-spices.png";
   } else if (pathname.includes("/bakery")) {
-    brandSuffix = "BAKERY";
-    logoSrc = "/logo-bakery.png"; // Change logo for bakery
+    logoSrc = "/logo-bakery.png";
   } else if (pathname.includes("/restaurant")) {
-    brandSuffix = "RESTAURANT";
-    logoSrc = "/logo-restaurant.png"; // Change logo for restaurant
+    logoSrc = "/logo-restaurant.png";
   } else if (pathname.includes("/grocery")) {
-    brandSuffix = "GROCERY";
-    logoSrc = "/logo-grocery.png"; // Change logo for grocery
+    logoSrc = "/logo-grocery.png";
   }
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -56,7 +49,7 @@ const Navbar = () => {
       {/* 2. MAIN NAVIGATION BAR */}
       <div className="bg-white w-full h-[60px] md:h-[75px] px-5 lg:px-12 flex items-center border-b border-gray-100 relative">
         
-        {/* === LEFT: LOGO SECTION (flex-1) === */}
+        {/* === LEFT: LOGO SECTION === */}
         <div className="flex-1 flex justify-start items-center h-full">
           <Link href="/" className="flex items-center h-full gap-3">
             
@@ -72,20 +65,21 @@ const Navbar = () => {
               </div>
             </div>
             
+            {/* Hardcoded Name: YARL LANKAN (Fixed) */}
             <h1 className="font-playfair font-bold text-[18px] md:text-[22px] lg:text-[26px] tracking-tight leading-none z-10 mt-1 whitespace-nowrap ml-[-10px] lg:ml-[-15px]">
               <span className="text-yarl-green">YARL</span>{" "}
-              <span className="text-yarl-maroon uppercase">{brandSuffix}</span>
+              <span className="text-yarl-maroon uppercase">LANKAN</span>
             </h1>
           </Link>
         </div>
 
-        {/* === CENTER: NAVIGATION LINKS (flex-none) === */}
+        {/* === CENTER: NAVIGATION LINKS === */}
         <nav className="hidden md:flex flex-none justify-center items-center gap-4 lg:gap-8 xl:gap-12 h-full">
           {navLinks.map((link) => (
             <Link 
               key={link.name}
               href={link.href} 
-              className={`text-[10px] lg:text-[12px] xl:text-[13px] font-bold uppercase tracking-widest font-playfair transition-colors duration-300 whitespace-nowrap
+              className={`text-[10px] lg:text-[12px] xl:text-[13px] font-bold uppercase tracking-widest font-tinos whitespace-nowrap transition-colors
                 ${pathname === link.href ? 'text-yarl-gold' : 'text-yarl-maroon hover:text-yarl-gold'}`}
             >
               {link.name}
@@ -93,10 +87,8 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* === RIGHT: ACTION BUTTON & MOBILE MENU (flex-1) === */}
+        {/* === RIGHT: ACTION BUTTON & MOBILE MENU === */}
         <div className="flex-1 flex justify-end items-center h-full">
-          
-          {/* Desktop & Tablet Order Button */}
           <div className="hidden md:flex items-center">
             <button className="bg-yarl-maroon text-white px-4 lg:px-6 py-2 rounded-md flex items-center gap-1.5 lg:gap-2 transition-all duration-300 hover:bg-yarl-dark shadow-sm group">
               <span className="text-[10px] lg:text-[10px] xl:text-[10px] font-tinos font-bold tracking-widest uppercase whitespace-nowrap">Order Now</span>
@@ -104,7 +96,6 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
           <div className="flex md:hidden items-center justify-end">
             <button 
               onClick={toggleMobileMenu}
