@@ -94,7 +94,7 @@ const BusinessHub = () => {
              opacity: 0,
              animation: "slideUp 0.6s ease-out 0.4s forwards"
            }}>
-        <h1 className="text-white font-bold font-playfair tracking-tight -mb-1.5
+        <h1 className="text-white font-bold font-playfair tracking-tight -mb-2
                        text-[28px] md:text-5xl lg:text-6xl whitespace-nowrap md:whitespace-normal drop-shadow-lg">
           Welcome to <span className="text-yarl-gray">Our Business Hub</span>
         </h1>
