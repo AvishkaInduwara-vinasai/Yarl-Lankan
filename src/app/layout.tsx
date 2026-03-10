@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Tinos } from "next/font/google"; // Font imports grouped together for better organization
 import "./globals.css";
 import Navbar from "../components/common/Navbar"; // Consider using @ alias to make import paths shorter
+import Footer from "../components/common/Footer";
 
 // Fonts Setup
 const inter = Inter({
@@ -47,7 +48,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* Footer will be added here later */}
+        <Footer />
       </body>
     </html>
   );
