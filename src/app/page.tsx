@@ -53,7 +53,7 @@ const BusinessHub = () => {
       
       {/* ---------------------------------------------------------
           1. NEW BRIGHT & BLURRED BACKGROUND LAYER
-          (මෙතනින් බැක්ග්‍රවුන්ඩ් එක optimize කරලා ලස්සනට පෙන්වනවා)
+          (Background optimized for better visual presentation)
       --------------------------------------------------------- */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
@@ -63,7 +63,7 @@ const BusinessHub = () => {
           className="object-cover blur-[2px] scale-110 opacity-80"
           priority
         />
-        {/* අකුරු වල contrast එක තියාගන්න හරිම ලා කළු ලේයර් එකක් */}
+        {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/30" />
       </div>
 

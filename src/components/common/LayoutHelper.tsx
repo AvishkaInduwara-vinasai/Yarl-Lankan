@@ -10,13 +10,13 @@ export default function LayoutHelper({ children }: { children: React.ReactNode }
 
   return (
     <>
-      {/* Home page එකේදී විතරක් Navbar එක පෙන්වන්නේ නැහැ */}
+      {/* Navbar is hidden only on the home page */}
       {!isHomePage && <Navbar />}
 
       <main className={
         isHomePage 
-          ? "pt-0" // Home page එකේදී padding සීරෝ කරනවා, එතකොට උඩටම යනවා
-          : "pt-[100px] md:pt-[130px] lg:pt-[150px]" // අනිත් පේජ් වලට Navbar එකට ඉඩ තියනවා
+          ? "pt-0" // Zero padding on home page for full-screen layout
+          : "pt-[100px] md:pt-[130px] lg:pt-[150px]" // Standard padding for other pages to account for fixed navbar
       }>
         {children}
       </main>
