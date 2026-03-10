@@ -38,8 +38,8 @@ const Footer = () => {
     <footer className="bg-yarl-gray text-gray-300 pt-10 font-roboto border-t border-white/5">
       <style jsx>{`
         @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to { opacity: 1; transform: translateY(0); }
+          0% { opacity: 0; transform: translateY(12px); }
+          100% { opacity: 1; transform: translateY(0); }
         }
         .fade-col { opacity: 0; animation: fadeUp 0.5s ease forwards; }
       `}</style>
@@ -135,7 +135,7 @@ const Footer = () => {
       {/* Divider & Copyright */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mt-8">
         <hr className="border-t border-white/5" />
-        <div className="text-center py-5 text-gray-400 text-[12px] tracking-widest uppercase font-medium opacity-0 animate-[fadeUp_0.5s_ease_0.4s_forwards]">
+        <div className="text-center py-5 text-gray-400 text-[12px] tracking-widest uppercase font-medium animate-[fadeUp_0.5s_ease_0.4s_both]">
           © {currentYear} <span className="text-yarl-green font-bold">Yarl Lankan</span> | All rights reserved
         </div>
       </div>
