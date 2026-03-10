@@ -10,9 +10,9 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
- /* if (pathname === "/") {
-    return null;
-  }*/
+  // if (pathname === "/") {
+  //  return null;
+  // }
 
   // Only the Logo source changes based on the path
   let logoSrc = "/logo.png"; 
