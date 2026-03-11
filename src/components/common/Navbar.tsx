@@ -32,8 +32,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'HOME', href: '/' },
     { name: 'ABOUT US', href: '/about' },
-    { name: 'INQUIRY FORM', href: '/inquiry' },
-    { name: 'CONTACT US', href: '/contact' },
+    { name: 'INQUIRY FORM', href: '/about#inquiry' },
+    { name: 'CONTACT US', href: '/about#contact' },
   ];
 
   return (
@@ -80,7 +80,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href} 
               className={`text-[10px] lg:text-[12px] xl:text-[13px] font-bold uppercase tracking-widest font-tinos whitespace-nowrap transition-colors
-                ${pathname === link.href ? 'text-yarl-gold' : 'text-yarl-maroon hover:text-yarl-gold'}`}
+                ${(pathname === link.href || (link.href.includes('#') && pathname === link.href.split('#')[0])) ? 'text-yarl-gold' : 'text-yarl-maroon hover:text-yarl-gold'}`}
             >
               {link.name}
             </Link>
@@ -117,7 +117,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href} 
                 className={`text-base font-bold uppercase tracking-widest font-playfair
-                  ${pathname === link.href ? 'text-yarl-gold' : 'text-yarl-maroon'}`}
+                  ${(pathname === link.href || (link.href.includes('#') && pathname === link.href.split('#')[0])) ? 'text-yarl-gold' : 'text-yarl-maroon'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
