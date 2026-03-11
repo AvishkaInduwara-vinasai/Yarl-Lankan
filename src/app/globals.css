@@ -1,5 +1,18 @@
 @import "tailwindcss"; /* Tailwind CSS import syntax for Next.js 16/v4 */
 
+/* Smooth scrolling for hash navigation */
+html {
+  scroll-behavior: smooth;
+  /* Add scroll padding to account for fixed navbar */
+  scroll-padding-top: 100px; /* Adjust for navbar height (30px + 60px + some buffer) */
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 115px; /* Adjust for larger navbar on desktop (30px + 75px + buffer) */
+  }
+}
+
 @theme {
   /* Figma Colors */
   --color-yarl-primary: #ffffff;

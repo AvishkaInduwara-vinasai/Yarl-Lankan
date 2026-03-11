@@ -76,9 +76,9 @@ const Footer = () => {
           <ul className="flex flex-col gap-2.5">
             {[
               { name: 'Home', href: '/' },
-              { name: 'Inquiry form', href: '/inquiry' },
+              { name: 'Inquiry form', href: '/about#inquiry' },
               { name: 'About Us', href: '/about' },
-              { name: 'Contact Us', href: '/contact' },
+              { name: 'Contact Us', href: '/about#contact' },
               { name: 'Terms of use', href: '/terms' },
               { name: 'Privacy policy', href: '/privacy' }
             ].map((link) => (

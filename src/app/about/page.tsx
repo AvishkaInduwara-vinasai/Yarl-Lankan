@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import ContactInquirySection from '../../components/forms/ContactInquirySection'; // Import from correct path
 
 const AboutPage = () => {
   const segments = [
@@ -26,11 +27,11 @@ const AboutPage = () => {
         </div>
         <div className="max-w-[1400px] w-full grid grid-cols-1 lg:grid-cols-2 items-stretch min-h-[90vh]">
           <div className="flex flex-col justify-center items-center py-12 lg:py-16 px-4 md:px-12">
-            <div className="max-w-[850px] w-full flex flex-col gap-6">
+            <div className="max-w-[850px] w-full flex flex-col gap-6 relative z-10">
               <div className="bg-white/50 backdrop-blur-md p-8 rounded-[10px] shadow-2xl border border-white/30">
                 <h2 className="text-black text-3xl md:text-4xl font-bold font-playfair mb-2 -mt-2 text-center">About <span className="font-light font-bold text-white">Us</span></h2>
                 <p className="text-black text-[15px] md:text-[16px] leading-relaxed text-center font-serif">
-                  Yarl Lankan was established in 2025 with a vision to provide the finest quality products and build trust among people in Sri Lanka and beyond. Our name is inspired by Yarlpanam (යාපනය) – "Yarl" combined with "Lankan", creating a unique identity.
+                  Yarl Lankan was established in 2025 with a vision to provide the finest quality products and build trust among people in Sri Lanka and beyond. Our name is inspired by Yarlpanam – "Yarl" combined with "Lankan", creating a unique identity.
                 </p>
               </div>
               <div className="bg-white/50 backdrop-blur-md p-8 rounded-[10px] shadow-2xl border border-white/30">
@@ -62,38 +63,26 @@ const AboutPage = () => {
                  animation: "slideUp 0.6s ease-out 0.4s forwards"
                }}>
         <div className="max-w-[1300px] mx-auto text-center">
-          
-          {/* Header Area with the Underline */}
           <div className="flex flex-col items-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold font-playfair">
               <span className="text-yarl-brown font-normal">Our Four Segments</span>
             </h2>
-            {/* Decorative underline - 60px width, centered nicely */}
             <div className="w-16 h-1 bg-yarl-brown mt-3 rounded-full opacity-60"></div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {segments.map((item, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center overflow-hidden transition-all hover:shadow-md">
-                
                 <div className="relative h-40 w-full overflow-hidden">
-                  <Image 
-                    src={item.img} 
-                    alt={item.title} 
-                    fill 
-                    className="object-cover" 
-                  />
+                  <Image src={item.img} alt={item.title} fill className="object-cover" />
                 </div>
-
                 <div className="px-4 py-5 flex flex-col items-center flex-grow">
                   <h3 className="text-yarl-maroon text-[17px] font-bold font-playfair mb-2 leading-tight text-center min-h-[40px] flex items-center">
                     {item.title}
                   </h3>
-                  
-                  <p className="text-gray-600 text-[15px] leading-relaxed text-center font-medium mb-4">
+                  <p className="text-gray-600 text-[12px] leading-relaxed text-center font-medium mb-4">
                     {item.desc}
                   </p>
-                  
                   <div className="mt-auto">
                     <button className="bg-yarl-red hover:bg-yarl-maroon text-white px-8 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all shadow-sm active:scale-95">
                       Explore
@@ -106,18 +95,23 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* --- SECTION 3: COMMON CONTACT & INQUIRY SECTION --- */}
+      {/* Reusable contact component included here */}
+      <div style={{ opacity: 0, animation: "fadeIn 0.8s ease-out 0.6s forwards" }}>
+        <ContactInquirySection />
+      </div>
+
+      {/* --- KEYFRAME ANIMATIONS --- */}
       <style dangerouslySetInnerHTML={{
         __html: `
           @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
           }
-          
           @keyframes slideDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
           }
-          
           @keyframes slideUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
