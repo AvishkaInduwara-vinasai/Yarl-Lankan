@@ -57,10 +57,10 @@ const BusinessHub = () => {
       --------------------------------------------------------- */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/bg-supermarket.jpg"
+          src="/bg-supermarket2.jpg"
           alt="Background"
           fill
-          className="object-cover blur-[2px] scale-110 opacity-80"
+          className="object-cover blur-[5px] scale-110"
           priority
         />
         {/* Dark overlay for better text contrast */}
