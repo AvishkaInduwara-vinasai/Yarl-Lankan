@@ -74,7 +74,7 @@ const SpicesPage = () => {
           <h2 className="text-3xl md:text-4xl font-normal font-playfair text-yarl-brown text-center">Our Spice Collection</h2>
           <div className="w-16 h-0.5 bg-yarl-brown mt-2 rounded-full opacity-70"></div>
           
-          <div className="relative max-w-sm mt-10">
+          <div className="relative max-w-sm mt-6 -mb-3">
             <input 
               type="text" 
               placeholder="Search for item" 
