@@ -9,6 +9,7 @@ import { Plus, Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const whatsappOrderLink = "https://wa.me/6588195910?text=Hi%20Yarl%20Lankan%2C%20I%20would%20like%20to%20place%20an%20order.";
 
   // if (pathname === "/") {
   //  return null;
@@ -90,10 +91,15 @@ const Navbar = () => {
         {/* === RIGHT: ACTION BUTTON & MOBILE MENU === */}
         <div className="flex-1 flex justify-end items-center h-full">
           <div className="hidden md:flex items-center">
-            <button className="bg-yarl-maroon text-white px-4 lg:px-6 py-2 rounded-md flex items-center gap-1.5 lg:gap-2 transition-all duration-300 hover:bg-yarl-dark shadow-sm group">
+            <a
+              href={whatsappOrderLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-yarl-maroon text-white px-4 lg:px-6 py-2 rounded-md flex items-center gap-1.5 lg:gap-2 transition-all duration-300 hover:bg-yarl-dark shadow-sm group"
+            >
               <span className="text-[10px] lg:text-[10px] xl:text-[10px] font-tinos font-bold tracking-widest uppercase whitespace-nowrap">Order Now</span>
               <Plus size={16} className="transition-transform duration-500 group-hover:rotate-180" />
-            </button>
+            </a>
           </div>
 
           <div className="flex md:hidden items-center justify-end">
@@ -124,10 +130,16 @@ const Navbar = () => {
               </Link>
             ))}
             
-            <button className="w-full bg-yarl-maroon text-white px-6 py-3.5 rounded-md flex items-center justify-center gap-2 transition-all duration-300 hover:bg-yarl-dark group mt-4">
+            <a
+              href={whatsappOrderLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-yarl-maroon text-white px-6 py-3.5 rounded-md flex items-center justify-center gap-2 transition-all duration-300 hover:bg-yarl-dark group mt-4"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               <span className="text-[14px] font-bold tracking-widest uppercase font-tinos">Order Now</span>
               <Plus size={18} className="transition-transform duration-500 group-hover:rotate-180" />
-            </button>
+            </a>
           </div>
         </div>
       )}

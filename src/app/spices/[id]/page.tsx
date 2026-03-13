@@ -6,136 +6,12 @@ import { useParams } from 'next/navigation';
 import { ArrowLeft, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import ContactInquirySection from '../../../components/forms/ContactInquirySection';
+import { spiceProducts, type ProductVariation } from '../../data/products';
 
-type ProductVariation = {
-  weight: string;
-  price: string;
-};
-
-type ProductDetails = {
-  type: string;
-  origin: string;
-  packaging: string;
-  shipping: string;
-};
-
-type SpiceProduct = {
-  id: string;
-  name: string;
-  price: string;
-  mainImg: string;
-  heroImg: string;
-  galleryImages: string[];
-  category: string;
-  details: ProductDetails;
-  variations: ProductVariation[];
-  description: string;
-  longDesc: string;
-  features: string[];
-};
 
 const DETAIL_TABS = ['Price Details', 'Description', 'Additional Information'] as const;
 const SHIPPING_NOTE = 'Shipped Within Takes 2-5 Days After Payment, Delivery Will Take 30-45 Days.';
 const DEFAULT_VARIATION: ProductVariation = { weight: '', price: '' };
-
-// Product content stays in one place for easier editing.
-const spiceProducts: SpiceProduct[] = [
-  { 
-    id: "1", 
-    name: "Jaffna Curry Powder", 
-    price: "30.23", 
-    mainImg: "/jaffna-curry.png",
-    heroImg: "/hero-jaffna-curry1.png",
-    galleryImages: ["/jaffna-curry.png", "/jaffna-curry-2.png", "/jaffna-curry-3.png", "/jaffna-curry-4.png"],
-    category: "Spices",
-    // --- Price Details Metadata ---
-    details: {
-      type: "Spice/ Jaffna Roasted Blend",
-      origin: "Sri Lanka (Northern)",
-      packaging: "Packet (Polythene)",
-      shipping: "Worldwide Economy (10-35 Days) / Express (5-10 Days)"
-    },
-    variations: [
-      { weight: "100 g", price: "350.00" },
-      { weight: "250 g", price: "825.00" },
-      { weight: "500 g", price: "1600.00" },
-      { weight: "1 kg", price: "3100.00" }
-    ],
-    description: "Discover the rich essence of Sri Lankan Jaffna Curry Powder. Crafted from a traditional family recipe, this bold blend is known for its dark-roasted aroma and authentic fiery heat.",
-    longDesc: "Our Jaffna Curry Powder is 100% authentic, sourced directly from the northern spice gardens of Sri Lanka. It is a more refined flavor than ordinary curry powders, preserving its natural oils and potent fragrance. Perfect for home chefs and spice lovers seeking a genuine taste of Jaffna.",
-    features: ["100% Authentic Sri Lankan Spice", "Natural Fine Powder", "Free from Additives or Fillers", "Ideal for Meat & Seafood Curries"]
-  },
-  { 
-    id: "2", 
-    name: "Ceylon Cinnamon", 
-    price: "25.80", 
-    mainImg: "/cinnamon.png",
-    heroImg: "/hero-cinnamon.jpg",
-    galleryImages: ["/cinnamon.png", "/cinnamon-2.jpg", "/cinnamon-3.jpg", "/cinnamon-4.jpg"],
-    category: "Spices",
-    details: { type: "Spice/ True Cinnamon", origin: "Sri Lanka (Southern)", packaging: "Bundle", shipping: "Standard" },
-    variations: [{ weight: "100 g", price: "450.00" }, { weight: "500 g", price: "2100.00" }],
-    description: "Premium 'True Cinnamon' from the hills of Sri Lanka, offering a delicate sweetness and subtle spice.",
-    longDesc: "Unlike Cassia, Ceylon Cinnamon is thinner, multi-layered, and carries a unique sweet-spicy flavor. It is perfect for baking, tea, and savory meat dishes. Harvested sustainably and processed by hand to ensure the highest quality quills.",
-    features: ["True Ceylon Cinnamon", "Delicate Sweet Flavor", "Hand Processed", "Perfect for Baking & Tea"]
-  },
-  { 
-    id: "3", 
-    name: "Black Pepper Whole", 
-    price: "30.23", 
-    mainImg: "/pepper.png",
-    heroImg: "/hero-black-pepper.png",
-    galleryImages: ["/pepper.png", "/pepper-2.jpg", "/pepper-3.jpg", "/pepper-4.jpg"],
-    category: "Spices",
-    details: { type: "Spice/ Black Pepper", origin: "Sri Lanka (Central)", packaging: "Packet", shipping: "Standard" },
-    variations: [{ weight: "100 g", price: "350.00" }, { weight: "500 g", price: "1650.00" }],
-    description: "Premium Ceylon Black Pepper, also known as the 'King of Spices', is famous for its strong aroma and bold flavor.",
-    longDesc: "Grown in the central hills of Sri Lanka, our black pepper offers a sophisticated heat with light citrus notes. It is carefully sun-dried to preserve its natural piperine content, ensuring you get the maximum health benefits and pungent flavor.",
-    features: ["High Piperine Content", "Verified Authentic Quality", "Sustainably Harvested", "No Preservatives"]
-  },
-  { 
-    id: "4", 
-    name: "Red Chili Flakes", 
-    price: "18.50", 
-    mainImg: "/chili.jpg",
-    heroImg: "/hero-chili.jpg",
-    galleryImages: ["/chili.jpg", "/chili-2.jpg", "/chili-3.jpg", "/chili-4.jpg"],
-    category: "Spices",
-    details: { type: "Spice", origin: "Sri Lanka", packaging: "Packet", shipping: "Standard" },
-    variations: [{ weight: "100 g", price: "250.00" }],
-    description: "Perfectly dried and crushed Sri Lankan red chilies to add that extra kick to your dishes.",
-    longDesc: "Our red chili flakes are made from premium Sri Lankan red chilies, carefully dried and crushed to retain maximum heat and flavor.",
-    features: ["Premium Sri Lankan Chilies", "Maximum Heat Retention", "Perfect Crush Size", "Versatile Usage"]
-  },
-  { 
-    id: "5", 
-    name: "Roasted Curry Powder", 
-    price: "22.00", 
-    mainImg: "/roasted-curry.png",
-    heroImg: "/hero-roasted-curry.jpg",
-    galleryImages: ["/roasted-curry.png", "/roasted-curry-2.jpg", "/roasted-curry-3.jpg", "/roasted-curry-4.jpg"],
-    category: "Spices",
-    details: { type: "Spice", origin: "Sri Lanka", packaging: "Packet", shipping: "Standard" },
-    variations: [{ weight: "100 g", price: "300.00" }],
-    description: "Traditional Sri Lankan roasted curry powder for authentic curries with rich, deep flavors.",
-    longDesc: "This traditional roasted curry powder is made using an age-old Sri Lankan recipe. The spices are carefully roasted to perfection.",
-    features: ["Traditional Recipe", "Perfectly Roasted", "Rich Deep Flavor", "Authentic Sri Lankan Taste"]
-  },
-  { 
-    id: "6", 
-    name: "Cardamom Pods", 
-    price: "45.00", 
-    mainImg: "/cardamom.jpg",
-    heroImg: "/hero-cardamom.jpg",
-    galleryImages: ["/cardamom.jpg", "/cardamom-2.jpg", "/cardamom-3.jpg", "/cardamom-4.jpg"],
-    category: "Spices",
-    details: { type: "Spice", origin: "Sri Lanka", packaging: "Packet", shipping: "Standard" },
-    variations: [{ weight: "50 g", price: "600.00" }],
-    description: "Aromatic green cardamom pods from Sri Lankan highlands, perfect for both sweet and savory dishes.",
-    longDesc: "Our premium cardamom pods are sourced from the misty highlands of Sri Lanka. Known for their intense aroma and complex flavor.",
-    features: ["Highland Grown", "Intense Aroma", "Hand Selected", "Premium Quality"]
-  }
-];
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -148,8 +24,9 @@ const ProductDetailPage = () => {
 
   const [selectedVariation, setSelectedVariation] = useState<ProductVariation>(DEFAULT_VARIATION);
 
+  
   const product = spiceProducts.find((p) => p.id === String(id));
-  const featuredProducts = spiceProducts.filter((item) => item.id !== product?.id).slice(0, 3);
+  const featuredProducts = spiceProducts.filter((item) => item.id !== product?.id).slice(0, 5);
 
   // Reset the selected variation when the product changes.
   useEffect(() => {
@@ -220,7 +97,7 @@ const ProductDetailPage = () => {
           
           {/* Main Image Box */}
           <div className="relative w-full max-w-[380px] bg-white rounded-2xl overflow-hidden">
-            <div style={{ paddingBottom: '60%' }}></div>
+            <div style={{ paddingBottom: '100%' }}></div>
             <div 
               className="absolute inset-0 flex items-center justify-center p-6 cursor-crosshair"
               onMouseMove={handleMouseMove}
@@ -229,7 +106,7 @@ const ProductDetailPage = () => {
             >
               <Image 
                 src={product.galleryImages[selectedImage]} 
-                alt={product.name} 
+                alt= {product.name}
                 fill
                 sizes="(max-width: 768px) 100vw, 380px" 
                 className="object-cover p-6 transition-opacity duration-300"
@@ -259,8 +136,7 @@ const ProductDetailPage = () => {
                  key={index} 
                  onClick={() => setSelectedImage(index)}
                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center p-2 cursor-pointer transition-all ${
-                    selectedImage === index 
-                      
+                    selectedImage === index ? 'bg-gray-100' : ''
                  }`}
                >
                   <Image 
@@ -275,32 +151,32 @@ const ProductDetailPage = () => {
              ))}
           </div>
 
-          <div className="w-full my-8">
+          <div className="w-full my-16 mb-2">
             <hr className="border-gray-300" />
           </div>
 
-          {/* Quick links to other spice products. */}
-          <div className="w-full max-w-[380px]">
-            <h3 className="text-lg font-playfair font-bold text-[#222] mb-6 text-center lg:text-left">Featured Products</h3>
+          {/* Featured Products */}
+          <div className="w-full max-w-[580px]">
+            <h3 className="text-lg font-playfair font-bold text-[#222] mb-6 text-center lg:text-left md:text-left">Featured Products</h3>
             
-            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex gap-1 pb-2 scrollbar-hidden overflow-x-auto lg:overflow-x-visible">
               {featuredProducts.map((item) => (
                 <Link 
                   key={item.id} 
                   href={`/spices/${item.id}`}
                   className="group cursor-pointer block flex-shrink-0"
                 >
-                  <h4 className="text-[15px] font-semibold text-gray-800 text-left mb-2 group-hover:text-[#b8860b] transition-colors line-clamp-2 w-30">
+                  <h4 className="text-[15px] font-semibold text-gray-800 text-left mb-2 group-hover:text-[#b8860b] transition-colors line-clamp-2 w-50">
                     {item.name}
                   </h4>
                   
-                  <div className="relative w-40 h-30 bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                  <div className="relative w-40 h-30 bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all ">
                     <Image 
                       src={item.mainImg} 
                       alt={item.name} 
                       width={450}
                       height={450}
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover scale-120 group-hover:scale-130 transition-transform duration-300"
                     />
                   </div>
                 </Link>
@@ -330,7 +206,6 @@ const ProductDetailPage = () => {
           <div className="min-h-[400px]">
             {activeTab === 'Price Details' && (
               <div className="space-y-6">
-                {/* Product facts shown before the pricing controls. */}
                 <div className="space-y-1 mb-10 text-[15px] text-gray-800">
                   <p className='mb-2 '><span className="font-bold">Product Type:</span> {product.details?.type}</p>
                   <p className='mb-2'><span className="font-bold">Origin:</span> {product.details?.origin}</p>
@@ -342,7 +217,6 @@ const ProductDetailPage = () => {
                   </p>
                 </div>
 
-                {/* Keep labels and values aligned in two clean columns. */}
                 <div className="grid max-w-[560px] grid-cols-2 gap-x-8 sm:gap-x-14 gap-y-3 border-t border-gray-100 pt-8 items-start">
                   <label className="text-xl font-bold text-gray-400 tracking-tighter">Weight</label>
                   <label className="text-xl font-bold text-gray-400 tracking-tighter">Price</label>
@@ -362,7 +236,6 @@ const ProductDetailPage = () => {
                   </div>
                 </div>
 
-                {/* WhatsApp Inquiry */}
                 <a 
                   href={`https://wa.me/6588195910?text=I'm interested in ${product.name} (${selectedVariation.weight})`}
                   target="_blank"
@@ -402,7 +275,6 @@ const ProductDetailPage = () => {
         </div>
       </section>
       
-      {/* Footer Form */}
       <div className="mt-10 bg-[#fcfcfc]" style={{ opacity: 0, animation: "fadeIn 0.8s ease-out 0.6s forwards" }}>
         <ContactInquirySection />
       </div>
@@ -410,22 +282,12 @@ const ProductDetailPage = () => {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-            @keyframes fadeIn {
-              from { opacity: 0; }
-              to { opacity: 1; }
-            }
-            @keyframes slideDown {
-              from { opacity: 0; transform: translateY(-20px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes slideUp {
-              from { opacity: 0; transform: translateY(20px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
+            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+            @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
           `
         }}
       />
-
     </main>
   );
 };

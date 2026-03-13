@@ -97,7 +97,7 @@ const ContactInquirySection = () => {
                   Have a Specific <br className="hidden lg:block"/> Inquiry?
                 </h2>
               </div>
-              <div className="hidden lg:block h-20 w-[1px] bg-white/20"></div>
+              <div className="hidden lg:block h-20 w-[2px] bg-white/20"></div>
               <p className="text-sm md:text-base text-gray-400 leading-relaxed text-center lg:text-left lg:max-w-md">
                 From tailored catering menus to bespoke spice blends and custom cake designs tell us what you need. Share your details below, and our team will get back to you within 24 hours.
               </p>
