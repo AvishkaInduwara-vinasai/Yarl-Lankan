@@ -149,7 +149,7 @@ const BakeryPage = () => {
                     <p className="text-[14px] text-gray-500 leading-relaxed mb-4 line-clamp-3 font-serif">{product.desc}</p>
                     
                     <div className="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
-                      <span className="text-3xl font-bold text-[#723e1b] font-serif">
+                      <span className="text-3xl font-bold text-yarl-brown font-serif">
                         <span className="text-[25px] mr-0.5">$</span>{product.price}
                       </span>
                       <a href={`https://wa.me/6588195910?text=I'm interested in ordering the ${product.name}`} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
