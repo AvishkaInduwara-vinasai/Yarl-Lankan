@@ -45,8 +45,8 @@ const spiceProducts: SpiceProduct[] = [
     name: "Jaffna Curry Powder", 
     price: "30.23", 
     mainImg: "/jaffna-curry.png",
-    heroImg: "/hero-jaffna-curry.png",
-    galleryImages: ["/jaffna-curry.png", "/jaffna-curry-2.png", "/jaffna-curry-3.jpg", "/jaffna-curry-4.jpg"],
+    heroImg: "/hero-jaffna-curry1.png",
+    galleryImages: ["/jaffna-curry.png", "/jaffna-curry-2.png", "/jaffna-curry-3.png", "/jaffna-curry-4.png"],
     category: "Spices",
     // --- Price Details Metadata ---
     details: {
@@ -84,7 +84,7 @@ const spiceProducts: SpiceProduct[] = [
     name: "Black Pepper Whole", 
     price: "30.23", 
     mainImg: "/pepper.png",
-    heroImg: "/hero-black-pepper.jpg",
+    heroImg: "/hero-black-pepper.png",
     galleryImages: ["/pepper.png", "/pepper-2.jpg", "/pepper-3.jpg", "/pepper-4.jpg"],
     category: "Spices",
     details: { type: "Spice/ Black Pepper", origin: "Sri Lanka (Central)", packaging: "Packet", shipping: "Standard" },

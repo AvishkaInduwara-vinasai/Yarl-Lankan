@@ -11,23 +11,21 @@ const handwrittenFont = Caveat({ subsets: ['latin'], weight: '400' });
 const greatVibesFont = Great_Vibes({ subsets: ['latin'], weight: '400' });
 
 const GroceryPage = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false); // මුලින්ම false තියමු
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isNotified, setIsNotified] = useState(false);
 
-  // 1. පේජ් එක මුලින්ම ලෝඩ් වෙද්දි කලින් Notify කරලද බලනවා
   useEffect(() => {
     const notifiedStatus = localStorage.getItem('grocery_notified');
     if (notifiedStatus === 'true') {
       setIsNotified(true);
-      setIsPopupOpen(false); // කලින් Notify කරලා නම් Popup එක ඕන නැහැ
+      setIsPopupOpen(false);
     } else {
-      setIsPopupOpen(true); // නැත්නම් විතරක් Popup එක පෙන්වනවා
+      setIsPopupOpen(true);
     }
   }, []);
 
-  // 2. Notify Me ක්ලික් කරාම Browser එකේ සේව් කරනවා
   const handleNotifyMe = () => {
-    localStorage.setItem('grocery_notified', 'true'); // Browser memory එකට දානවා
+    localStorage.setItem('grocery_notified', 'true');
     setIsPopupOpen(false);
     setIsNotified(true);
   };
