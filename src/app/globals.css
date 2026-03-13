@@ -25,6 +25,7 @@ html {
   --color-yarl-gray: #383838;
   --color-yarl-green: #25AC28;
   --color-yarl-red: #D51818;
+  --color-yarl-dark-yellow: #b8860b;
 
   /* Typography */
   --font-serif: var(--font-playfair), serif;

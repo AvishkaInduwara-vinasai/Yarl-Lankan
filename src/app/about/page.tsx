@@ -2,14 +2,15 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import ContactInquirySection from '../../components/forms/ContactInquirySection'; // Import from correct path
 
 const AboutPage = () => {
   const segments = [
-    { title: "Yarl Lankan Restaurant", desc: "Serving Authentic Sri Lankan And Jaffna Cuisine, Prepared With Traditional Recipes And Fresh Ingredients To Give You The True Taste Of Home.", img: "/restaurant-card.png" },
-    { title: "Yarl Lankan Spices & Blends", desc: "We Specialize In High-Quality, Freshly Imported Sri Lankan Spices. From Aromatic Curry Powders To Fragrant Cinnamon And Traditional Spice Blends.", img: "/spices-card.png" },
-    { title: "Yarl Lankan Cakes", desc: "Delicious Homemade Cakes Inspired By Sri Lankan Flavors, Crafted With Care For Every Celebration And Special Moment.", img: "/bakery-card.png" },
-    { title: "Yarl Lankan Catering & Specialty Foods", desc: "Bringing The Complete Sri Lankan Food Experience To Events, Gatherings, And Homes Across Singapore.", img: "/grocery-card.png" },
+    { title: "Yarl Lankan Restaurant", desc: "Serving Authentic Sri Lankan And Jaffna Cuisine, Prepared With Traditional Recipes And Fresh Ingredients To Give You The True Taste Of Home.", img: "/restaurant-card.png", href: "/restaurants" },
+    { title: "Yarl Lankan Spices & Blends", desc: "We Specialize In High-Quality, Freshly Imported Sri Lankan Spices. From Aromatic Curry Powders To Fragrant Cinnamon And Traditional Spice Blends.", img: "/spices-card.png", href: "/spices" },
+    { title: "Yarl Lankan Cakes", desc: "Delicious Homemade Cakes Inspired By Sri Lankan Flavors, Crafted With Care For Every Celebration And Special Moment.", img: "/bakery-card.png", href: "/bakery" },
+    { title: "Yarl Lankan Catering & Specialty Foods", desc: "Bringing The Complete Sri Lankan Food Experience To Events, Gatherings, And Homes Across Singapore.", img: "/grocery-card.png", href: "/grocery" },
   ];
 
   return (
@@ -84,9 +85,9 @@ const AboutPage = () => {
                     {item.desc}
                   </p>
                   <div className="mt-auto">
-                    <button className="bg-yarl-red hover:bg-yarl-maroon text-white px-8 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all shadow-sm active:scale-95">
+                    <Link href={item.href} className="inline-block bg-yarl-red hover:bg-yarl-maroon text-white px-8 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all shadow-sm active:scale-95">
                       Explore
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

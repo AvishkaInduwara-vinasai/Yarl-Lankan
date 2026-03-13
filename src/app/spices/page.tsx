@@ -14,13 +14,49 @@ const SpicesPage = () => {
   const [displayLimit, setDisplayLimit] = useState(5);
 
   const products = [
-    { id: "1", name: "Jaffna Curry Powder", desc: "Bold, dark-roasted spice mix from Northern Sri Lanka, known for its strong aroma and fiery heat.", price: "30.23", img: "/jaffna-curry.png" },
-    { id: "2", name: "Ceylon Cinnamon", desc: "Heat Ceylon Cinnamon, also known as 'True Cinnamon,' is the most premium among all cinnamon types.", price: "30.23", img: "/cinnamon.png" },
-    { id: "3", name: "Black Pepper", desc: "Famous for its strong aroma and bold flavour, premium Sri Lankan black pepper.", price: "30.23", img: "/pepper.png" },
-    { id: "4", name: "Jaffna Curry Powder (Roasted)", desc: "Bold, dark-roasted spice mix from Northern Sri Lanka.", price: "30.23", img: "/jaffna-curry.png" },
-    { id: "5", name: "Black Pepper (Grated)", desc: "Strong aroma and bold flavour, known as Ceylon pepper.", price: "30.23", img: "/pepper.png" },
-    { id: "6", name: "Red Chili Flakes", desc: "Perfectly dried and crushed Sri Lankan red chilies to add that extra kick.", price: "15.50", img: "/chili.jpg" },
-    { id: "7", name: "Roasted Curry Powder", desc: "Traditional Sri Lankan roasted curry powder for authentic curries.", price: "22.00", img: "/roasted-curry.png" }
+    { 
+      id: "1", 
+      name: "Jaffna Curry Powder", 
+      desc: "Bold, dark-roasted spice mix from Northern Sri Lanka, known for its strong aroma and fiery heat.", 
+      price: "30.23", 
+      img: "/jaffna-curry-item.png" 
+    },
+    { id: "2", 
+      name: "Ceylon Cinnamon", 
+      desc: "Heat Ceylon Cinnamon, also known as 'True Cinnamon,' is the most premium among all cinnamon types.", 
+      price: "30.23", 
+      img: "/cinnamon-item.png" 
+    },
+    { id: "3", 
+      name: "Black Pepper", 
+      desc: "Famous for its strong aroma and bold flavour, premium Sri Lankan black pepper.", 
+      price: "30.23", 
+      img: "/pepper-item.png" 
+    },
+    { id: "4", 
+      name: "Jaffna Curry Powder (Roasted)", 
+      desc: "Bold, dark-roasted spice mix from Northern Sri Lanka.", 
+      price: "30.23", 
+      img: "/jaffna-curry-item.png" 
+    },
+    { id: "5", 
+      name: "Black Pepper (Grated)", 
+      desc: "Strong aroma and bold flavour, known as Ceylon pepper.", 
+      price: "30.23", 
+      img: "/pepper-item.png" 
+    },
+    { id: "6", 
+      name: "Red Chili Flakes", 
+      desc: "Perfectly dried and crushed Sri Lankan red chilies to add that extra kick.", 
+      price: "15.50", 
+      img: "/chili-item.png" 
+    },
+    { id: "7", 
+      name: "Roasted Curry Powder", 
+      desc: "Traditional Sri Lankan roasted curry powder for authentic curries.", 
+      price: "22.00", 
+      img: "/roasted-curry-item.png" 
+    }
   ];
 
   const filteredProducts = products.filter(product =>
@@ -36,7 +72,7 @@ const SpicesPage = () => {
       {/* --- HERO SECTION --- */}
       <section className="relative w-full h-[45vh] flex flex-col items-center justify-center text-white overflow-hidden" style={{ opacity: 0, animation: "slideDown 0.6s ease-out 0.2s forwards" }}>
         <div className="absolute inset-0 z-0">
-          <Image src="/hero-spices1.png" alt="Spices and Blends" fill className="object-cover brightness-[0.4]" priority />
+          <Image src="/hero-spices-banner.png" alt="Spices and Blends" fill className="object-cover brightness-[0.4]" priority />
         </div>
         <Link href="/" className="absolute top-8 left-8 z-20 flex items-center gap-2 text-xs font-medium bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/10 hover:bg-black/40 transition-all">
           <ArrowLeft size={14} /> Back to Home
@@ -49,7 +85,7 @@ const SpicesPage = () => {
       </section>
 
       {/* --- INFO BAR --- */}
-      <div className="bg-[#723e1b] py-5 px-6" style={{ opacity: 0, animation: "slideUp 0.6s ease-out 0.4s forwards" }}>
+      <div className="bg-yarl-brown py-5 px-6" style={{ opacity: 0, animation: "slideUp 0.6s ease-out 0.4s forwards" }}>
         <p className="max-w-6xl mx-auto text-white text-[10px] md:text-[12px] leading-relaxed text-center tracking-[1.5px] opacity-90">
           We specialize in high-quality, freshly imported Sri Lankan spices. From aromatic curry powders to fragrant cinnamon and traditional spice blends, our products are carefully selected to enhance your cooking and bring vibrant flavors to your kitchen.
         </p>

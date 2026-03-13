@@ -22,10 +22,34 @@ const BusinessHub = () => {
   }, []);
 
   const services = [
-    { title: "Spices & Blends", description: "Exotic spices and blends", image: "/spices-card.png", link: "/spices", comingSoon: false },
-    { title: "Restaurants", description: "Delicious dining experiences.", image: "/restaurant-card.png", link: "/restaurants", comingSoon: false },
-    { title: "Bakery & Cakes", description: "Custom cakes and pastries", image: "/bakery-card.png", link: "/bakery", comingSoon: false },
-    { title: "Grocery Store", description: "Daily essentials and fresh produce", image: "/grocery-card.png", link: "/grocery", comingSoon: true },
+    { 
+      title: "Spices & Blends", 
+      description: "Exotic spices and blends", 
+      image: "/main-spices-card.png", 
+      link: "/spices", 
+      comingSoon: false 
+    },
+    { 
+      title: "Restaurants", 
+      description: "Delicious dining experiences.", 
+      image: "/main-restaurant-card.png", 
+      link: "/restaurants", 
+      comingSoon: false 
+    },
+    { 
+      title: "Bakery & Cakes", 
+      description: "Custom cakes and pastries", 
+      image: "/main-bakery-card.png", 
+      link: "/bakery", 
+      comingSoon: false 
+    },
+    { 
+      title: "Grocery Store", 
+      description: "Daily essentials and fresh produce", 
+      image: "/main-grocery-card.png", 
+      link: "/grocery", 
+      comingSoon: true 
+    },
   ];
 
   if (isLoading) {
@@ -33,14 +57,14 @@ const BusinessHub = () => {
       <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
         <div className="text-center">
           <h1 className="text-3xl font-bold font-playfair mb-4">
-            <span className="text-green-600">YARL</span>{" "}
-            <span className="text-red-800">LANKAN</span>
+            <span className="text-yarl-green">YARL</span>{" "}
+            <span className="text-yarl-maroon">LANKAN</span>
           </h1>
           
           <div className="flex justify-center space-x-1">
-            <div className="w-2 h-2 bg-amber-800 rounded-full animate-bounce"></div>
-            <div className="w-2 h-2 bg-yellow-700 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-            <div className="w-2 h-2 bg-orange-700 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+            <div className="w-2 h-2 bg-yarl-green rounded-full animate-bounce"></div>
+            <div className="w-2 h-2 bg-yarl-brown rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+            <div className="w-2 h-2 bg-yarl-maroon rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
           </div>
         </div>
       </div>
@@ -57,7 +81,7 @@ const BusinessHub = () => {
       --------------------------------------------------------- */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/bg-supermarket2.jpg"
+          src="/bg-main-image.jpg"
           alt="Background"
           fill
           className="object-cover blur-[5px] scale-110"
@@ -77,7 +101,7 @@ const BusinessHub = () => {
             animation: "slideDown 0.6s ease-out 0.2s forwards"
           }}> 
         <Image 
-          src="/logo.png" 
+          src="/common-logo.png" 
           alt="Yarl Lankan Logo" 
           width={220} 
           height={220} 
@@ -98,7 +122,7 @@ const BusinessHub = () => {
                        text-[28px] md:text-5xl lg:text-6xl whitespace-nowrap md:whitespace-normal drop-shadow-lg">
           Welcome to <span className="text-yarl-gray">Our Business Hub</span>
         </h1>
-        <p className="text-white font-medium tracking-wide opacity-90 font-serif text-sm md:text-xl drop-shadow-md">
+        <p className="text-white font-medium tracking-wide opacity-90 font-serif text-sm md:text-xl drop-shadow-md mt-4 -mb-4">
           Explore Our Diverse Services
         </p>
       </div>
@@ -136,7 +160,7 @@ const BusinessHub = () => {
               {/* Explore Button */}
               <div className="absolute -top-5">
                 <Link href={service.link}>
-                  <button className="bg-yarl-green hover:bg-green-700 text-white px-8 py-2 rounded-lg font-bold text-[11px] md:text-xs uppercase tracking-widest transition-all shadow-xl active:scale-95 border border-white/20">
+                  <button className="bg-yarl-green hover:bg-green-700 text-white px-10 py-2 rounded-[5px] font-bold text-[11px] md:text-xs uppercase tracking-widest transition-all shadow-xl active:scale-95">
                     Explore
                   </button>
                 </Link>

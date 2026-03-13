@@ -92,7 +92,7 @@ const BakeryPage = () => {
       </section>
 
       {/* --- INFO BAR --- */}
-      <div className="bg-[#723e1b] py-5 px-6"
+      <div className="bg-yarl-brown py-5 px-6"
            style={{
              opacity: 0,
              animation: "slideUp 0.6s ease-out 0.4s forwards"
@@ -109,8 +109,8 @@ const BakeryPage = () => {
                  animation: "slideUp 0.6s ease-out 0.6s forwards"
                }}>
         <div className="flex flex-col items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-normal font-playfair text-[#723e1b] text-center -mt-8">Our Bakery Collection</h2>
-          <div className="w-16 h-0.5 bg-[#723e1b] mt-2 rounded-full opacity-70"></div>
+          <h2 className="text-3xl md:text-4xl font-normal font-playfair text-yarl-brown text-center -mt-8">Our Bakery Collection</h2>
+          <div className="w-16 h-0.5 bg-yarl-brown mt-2 rounded-full opacity-70"></div>
           
           <div className="relative max-w-sm  mt-6 -mb-3">
             <input 
@@ -121,7 +121,7 @@ const BakeryPage = () => {
                 setSearchQuery(e.target.value);
                 setDisplayLimit(5);
               }}
-              className="w-full bg-white rounded-full px-6 py-2.5 text-sm border border-gray-100 shadow-sm focus:ring-1 focus:ring-[#723e1b] outline-none" 
+              className="w-full bg-white rounded-full px-6 py-2.5 text-sm border border-gray-100 shadow-sm focus:ring-1 focus:ring-yarl-brown outline-none" 
             />
             <Search className="absolute right-4 top-3 text-gray-400" size={16} />
           </div>
@@ -163,12 +163,12 @@ const BakeryPage = () => {
               {showSeeMore && (
                 <div 
                   onClick={() => setDisplayLimit(products.length)}
-                  className="group bg-white/40 border-2 border-dashed border-[#723e1b]/40 rounded-[25px] flex flex-col items-center justify-center p-8 h-full min-h-[400px] cursor-pointer hover:bg-white hover:border-solid transition-all"
+                  className="group bg-white/40 border-2 border-dashed border-yarl-brown/40 rounded-[25px] flex flex-col items-center justify-center p-8 h-full min-h-[400px] cursor-pointer hover:bg-white hover:border-solid transition-all"
                 >
-                  <div className="w-12 h-12 rounded-full border border-[#723e1b] flex items-center justify-center mb-4 group-hover:bg-[#723e1b] group-hover:text-white transition-all text-[#723e1b]">
+                  <div className="w-12 h-12 rounded-full border border-yarl-brown flex items-center justify-center mb-4 group-hover:bg-yarl-brown group-hover:text-white transition-all text-yarl-brown">
                     <Search size={20} />
                   </div>
-                  <span className="text-[#723e1b] font-playfair text-2xl">See more</span>
+                  <span className="text-yarl-brown font-playfair text-2xl">See more</span>
                 </div>
               )}
             </>
