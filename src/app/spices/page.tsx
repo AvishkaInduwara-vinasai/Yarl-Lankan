@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Caveat } from 'next/font/google';
 import { Search, ArrowLeft } from 'lucide-react';
 import ContactInquirySection from '../../components/forms/ContactInquirySection';
+import { spiceProducts } from '../data/products';
 
 const handwrittenFont = Caveat({ subsets: ['latin'], weight: '400' });
 
@@ -13,51 +14,13 @@ const SpicesPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [displayLimit, setDisplayLimit] = useState(5);
 
-  const products = [
-    { 
-      id: "1", 
-      name: "Jaffna Curry Powder", 
-      desc: "Bold, dark-roasted spice mix from Northern Sri Lanka, known for its strong aroma and fiery heat.", 
-      price: "30.23", 
-      img: "/jaffna-curry-item.png" 
-    },
-    { id: "2", 
-      name: "Ceylon Cinnamon", 
-      desc: "Heat Ceylon Cinnamon, also known as 'True Cinnamon,' is the most premium among all cinnamon types.", 
-      price: "30.23", 
-      img: "/cinnamon-item.png" 
-    },
-    { id: "3", 
-      name: "Black Pepper", 
-      desc: "Famous for its strong aroma and bold flavour, premium Sri Lankan black pepper.", 
-      price: "30.23", 
-      img: "/pepper-item.png" 
-    },
-    { id: "4", 
-      name: "Jaffna Curry Powder (Roasted)", 
-      desc: "Bold, dark-roasted spice mix from Northern Sri Lanka.", 
-      price: "30.23", 
-      img: "/jaffna-curry-item.png" 
-    },
-    { id: "5", 
-      name: "Black Pepper (Grated)", 
-      desc: "Strong aroma and bold flavour, known as Ceylon pepper.", 
-      price: "30.23", 
-      img: "/pepper-item.png" 
-    },
-    { id: "6", 
-      name: "Red Chili Flakes", 
-      desc: "Perfectly dried and crushed Sri Lankan red chilies to add that extra kick.", 
-      price: "15.50", 
-      img: "/chili-item.png" 
-    },
-    { id: "7", 
-      name: "Roasted Curry Powder", 
-      desc: "Traditional Sri Lankan roasted curry powder for authentic curries.", 
-      price: "22.00", 
-      img: "/roasted-curry-item.png" 
-    }
-  ];
+  const products = spiceProducts.map((p) => ({
+    id: p.id,
+    name: p.name,
+    desc: p.description,
+    price: p.price,
+    img: p.mainImg,
+  }));
 
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
